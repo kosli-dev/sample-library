@@ -12,7 +12,18 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+env: # Set the secret as an input
+  APP_NAME: ${{ github.event.repository.name }}
+  BUILD_NUMBER: ${{ github.run_number }}
+  GIT_REPO: ${{ github.repository }}
+  GIT_REPO_URL: ${{ github.event.repository.clone_url }}
+  GIT_BRANCH: ${{ github.ref_name }}
+  GIT_COMMIT: ${{ github.sha }}
+  BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+  COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
+  KOSLI_API_TOKEN: ${{ secrets.KOSLI_API_KEY }} # Set the Kosli API token as a secret in your repository
+  KOSLI_ORG: sofusalbertsen
+  KOSLI_FLOW: micronaut
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -24,8 +35,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-
+      - name: setup-kosli-cli
+        uses: kosli-dev/setup-cli-action@v2
+      - name: Update Flow
+        run: kosli create flow template-complete --description "Flow to check the template complete approach" --template-file=template-complete/kosli-config/flow.yaml
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: run the scenario up
         run: bash template-complete/1.sh
-
+      - name: check-template-complete
+        run: bash template-complete/check-template-complete.sh tempålate-complete/data.json MISSING
