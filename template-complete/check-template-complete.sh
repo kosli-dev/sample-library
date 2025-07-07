@@ -53,6 +53,7 @@ if [ ${#found_attestations[@]} -gt 0 ]; then
   for attestation in "${found_attestations[@]}"; do
     echo "- $attestation"
   done
+  exit 1
 else
   echo "No attestations found with '$status_to_find' status."
 fi
