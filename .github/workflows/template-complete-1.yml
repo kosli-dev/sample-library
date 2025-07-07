@@ -43,4 +43,4 @@ jobs:
       - name: run the scenario up
         run: bash template-complete/1.sh
       - name: check-template-complete
-        run: bash template-complete/check-template-complete.sh template-complete/data.json MISSING
+        run: bash template-complete/check-template-complete.sh data.json MISSING
