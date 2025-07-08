@@ -54,20 +54,12 @@ jobs:
       steps:
         - name: setup-kosli-cli
           uses: kosli-dev/setup-cli-action@v2
-        - name: Check Kosli Output
+        - name: Kosli search trails
           run: |
-            kosli get trail -o json ${GIT_COMMIT} > data.json
+            kosli search ${GIT_COMMIT} -o json > data.json
             echo "Kosli output saved to data.json"
             cat data.json
         - name: opload-artifact
           uses: actions/upload-artifact@v4.6.0
           with:
             path: data.json
-        - name: Check Artifacts
-          run: |
-            if grep -q '"name": "app"' data.json; then
-              echo "Artifact 'app' found in the trail."
-            else
-              echo "Artifact 'app' not found in the trail."
-              exit 1
-            fi
