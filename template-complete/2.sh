@@ -21,8 +21,8 @@ kosli begin trail ${GIT_COMMIT} --description "build number ${BUILD_NUMBER}"
 kosli attest artifact --trail=${GIT_COMMIT} --artifact-type=file --commit-url=${COMMIT_URL} --commit=${GIT_COMMIT} $ARTIFACT --build-url=${BUILD_URL} --name=app
 
 # Scenario 2: attest the sbom and junit, but fail one of them.
-touch sbom.json
-touch junit.xml
+echo "here is an sbom" > sbom.json
+echo "here is a Junit test file" >  junit.xml
 
 kosli attest generic --name sbom --trail ${GIT_COMMIT} --attachments  sbom.json
 kosli attest generic --name unit-tests --trail ${GIT_COMMIT} --attachments junit.xml --compliant=false
