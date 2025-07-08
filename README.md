@@ -10,20 +10,9 @@ This repository provides real-world examples and reusable components to help tea
 
 [Kosli](https://www.kosli.com/) is a DevOps compliance platform that automates governance by recording every change, enforcing policies, and proving compliance instantly. It helps organizations:
 
-## Sample Categories
+## Automated Solution
 
-### Template Compliance
-
-**Location:** `template-complete/`
-
-Tools and scripts for verifying that all required attestations have been submitted for a specific trail, ensuring your software delivery process is "template-complete."
-
-**Key Features:**
-
-- Parse Kosli trail JSON output
-- Check attestation statuses
-- Identify missing or incomplete compliance requirements
-
+These examples have automated workflows that demonstrates how the checks or scenarios are performed automatically. Look into [.github/workflows](.github/workflows) folder where the different workflows are located.
 
 ## Key Concepts
 
@@ -39,14 +28,6 @@ Tools and scripts for verifying that all required attestations have been submitt
 - **[DevOps Control Framework](https://sdlc.kosli.com/)** - Industry-standard security controls
 - **[Kosli Website](https://www.kosli.com/)** - Platform overview and case studies
 - **[Community Slack](https://www.kosli.com/community/)** - Get help and share knowledge
-
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on:
-
-- Submitting bug reports and feature requests
-- Contributing new sample scripts and examples
-- Improving documentation and tutorials
 
 ## License
 

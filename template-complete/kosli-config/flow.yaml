@@ -6,5 +6,5 @@ trail:
       - name: sbom
         type: generic
       - name: unit-tests
-        type: junit
+        type: generic
 
