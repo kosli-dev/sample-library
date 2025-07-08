@@ -23,7 +23,7 @@ env: # Set the secret as an input
   COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
   KOSLI_API_TOKEN: ${{ secrets.KOSLI_API_KEY }} # Set the Kosli API token as a secret in your repository
   KOSLI_ORG: sofusalbertsen
-  KOSLI_FLOW: multi-trail-artifact
+  KOSLI_FLOW_ORIG: multi-trail-artifact
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -43,10 +43,10 @@ jobs:
       - name: setup-kosli-cli
         uses: kosli-dev/setup-cli-action@v2
       - name: Update Flow
-        run: kosli create flow ${{env.KOSLI_FLOW}}${{matrix.flow}} --description "Flow${{matrix.flow}} for multi-flow-artifact" --template-file=${{env.KOSLI_FLOW}}/kosli-config/flow.yaml
+        run: kosli create flow ${{env.KOSLI_FLOW}} --description "Flow${{matrix.flow}} for multi-flow-artifact" --template-file=${{env.KOSLI_FLOW_ORIG}}/kosli-config/flow.yaml
       # Runs a single command using the runners shell
       - name: run the scenario up
-        run: bash ${{env.KOSLI_FLOW}}/1.sh
+        run: bash ${{env.KOSLI_FLOW_ORIG}}/1.sh
   output:
       name: kosli-output
       runs-on: ubuntu-latest
