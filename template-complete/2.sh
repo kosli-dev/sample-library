@@ -24,7 +24,7 @@ kosli attest artifact --trail=${GIT_COMMIT} --artifact-type=file --commit-url=${
 echo "here is an sbom" > sbom.json
 echo "here is a Junit test file" >  junit.xml
 
-kosli attest generic --name sbom --trail ${GIT_COMMIT} --attachments  sbom.json
-kosli attest generic --name unit-tests --trail ${GIT_COMMIT} --attachments junit.xml --compliant=false
+kosli attest generic --name app.sbom --trail ${GIT_COMMIT} --attachments  sbom.json
+kosli attest generic --name app.unit-tests --trail ${GIT_COMMIT} --attachments junit.xml --compliant=false
 
 kosli get trail -o json ${GIT_COMMIT} > data.json
