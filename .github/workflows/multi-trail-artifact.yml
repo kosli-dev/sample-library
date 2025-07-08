@@ -52,6 +52,8 @@ jobs:
       runs-on: ubuntu-latest
       needs: build
       steps:
+        - name: setup-kosli-cli
+          uses: kosli-dev/setup-cli-action@v2
         - name: Check Kosli Output
           run: |
             kosli get trail -o json ${GIT_COMMIT} > data.json
