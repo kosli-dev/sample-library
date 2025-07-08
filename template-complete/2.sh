@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 # Get the current git commit SHA
 GIT_SHA=$(git rev-parse HEAD)
 ARTIFACT=artifact.txt

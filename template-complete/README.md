@@ -14,7 +14,7 @@ We have 3 examples, two of which are interesting:
 * **Inconclussive, because of missing attestations:** Our template complete will fail, as there are one or more attestations not made. **This is scenario 1**.
 * **Non-compliant, and template complete:** In this scenario, all compliances are there, but just not compliant (disregarding the reason). **This is scenario 2**
 
-### 2. Template Completeness Check (`check-template-complete.sh`)
+### Template Completeness Check (`check-template-complete.sh`)
 
 The `check-template-complete.sh` script analyzes the JSON output of a given trail to determine template completeness:
 

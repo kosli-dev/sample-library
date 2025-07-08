@@ -33,9 +33,10 @@ json_data=$(cat "$json_file")
 # We use -r to output raw strings and @tsv to format as tab-separated values
 # This makes it easier to parse in bash.
 # The query now filters for the specific status provided as an argument.
-jq_query='(
+jq_query='
+(
   .compliance_status.attestations_statuses[]?, # Attestations directly under compliance_status
-  .compliance_status.artifacts_statuses | to_entries[]?.value.attestations_statuses[]? # Attestations nested under artifacts
+  .compliance_status.artifacts_statuses | to_entries[]?.value | select(type == "object") | .attestations_statuses[]? # Attestations nested under artifacts
 )
 | select(.status == "'"$status_to_find"'")
 | [.attestation_name, .status]
