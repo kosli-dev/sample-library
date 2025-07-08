@@ -38,9 +38,9 @@ jobs:
       - name: setup-kosli-cli
         uses: kosli-dev/setup-cli-action@v2
       - name: Update Flow
-        run: kosli create flow template-complete --description "Flow to check the template complete approach" --template-file=template-complete/kosli-config/flow.yaml
+        run: kosli create flow ${{env.KOSLI_FLOW}} --description "Flow to check the ${{env.KOSLI_FLOW}} approach" --template-file=${{env.KOSLI_FLOW}}/kosli-config/flow.yaml
       # Runs a single command using the runners shell
       - name: run the scenario up
-        run: bash template-complete/2.sh
+        run: bash ${{env.KOSLI_FLOW}}/2.sh
       - name: check-template-complete
-        run: bash template-complete/check-template-complete.sh data.json MISSING
+        run: bash ${{env.KOSLI_FLOW}}/check-template-complete.sh data.json MISSING
