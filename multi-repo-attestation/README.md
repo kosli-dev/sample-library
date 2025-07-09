@@ -8,8 +8,8 @@ Create a scenario where you clone down a 2nd repo, and performs an attestation i
 * Attest one artifact
 * Clone down another repo: https://github.com/sofusalbertsen/devbox-demo
 * Attest files from the second repo with two different styles:
-  * attest to the trail
   * Attest to the trail AND the HEAD commit from parent repo.
+  * attest to the trail, with no other additions.
 
 Repo looks like this:
 
