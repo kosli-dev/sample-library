@@ -21,6 +21,7 @@ kosli begin trail ${GIT_COMMIT} --description "build number ${BUILD_NUMBER}"
 kosli attest artifact --trail=${GIT_COMMIT} --artifact-type=file --commit-url=${COMMIT_URL} --commit=${GIT_COMMIT} $ARTIFACT --build-url=${BUILD_URL} --name=app
 git clone https://github.com/sofusalbertsen/devbox-demo
 echo "Cloned devbox-demo repository"
+tree -L 4
 cd devbox-demo
 echo "Current directory: $(pwd)"
 echo "Attesting devbox-demo repository"
