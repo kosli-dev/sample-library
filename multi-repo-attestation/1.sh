@@ -25,7 +25,7 @@ tree -L 4
 cd devbox-demo
 echo "Current directory: $(pwd)"
 echo "Attesting devbox-demo repository"
-kosli attest generic --name app.sbom --trail ${GIT_COMMIT} --commit ${GIT_COMMIT} --attachments  README.md
 kosli attest generic --name app.sbom --trail ${GIT_COMMIT} --attachments  LICENSE
+kosli attest generic --name app.sbom --trail ${GIT_COMMIT} --commit ${GIT_COMMIT} --attachments  README.md
 
 kosli get trail -o json ${GIT_COMMIT} > data.json
