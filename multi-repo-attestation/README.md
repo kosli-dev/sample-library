@@ -1,6 +1,9 @@
 # Multi Repo Attestation
 
-Create a scenario where you clone down a 2nd repo, and performs an attestation in that. What git commit is stored in kosli? And if you provide a --commit, are both then stored?
+This scenario covers the case where you clone down a second repository.
+That repo could be external test-tools or other things related to qualifying the artifact
+We want to perform attestations from that repository, over to the parent repository, maintaining a coherent attestation trail. 
+
 
 ## Scenario
 
